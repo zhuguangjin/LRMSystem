@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-19 13:48:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.SchoolClass" table="tb_class">
+        <id name="soclassId" type="long">
+            <column name="c_id" />
+            <generator class="native" />
+        </id>
+        <property name="soclassName" type="java.lang.String">
+            <column name="c_name" />
+        </property>
+        <property name="soclassGrade" type="java.lang.String">
+            <column name="c_grade" />
+        </property>
+        <property name="academy" type="java.lang.String">
+            <column name="c_academy" />
+        </property>
+        <property name="soclassMajor" type="java.lang.String">
+            <column name="c_major" />
+        </property>
+        
+        <!--soclassStudents  本类与Student类的关系      一对多    双向关联  -->
+        <set name="soclassStudents" table="tb_student">
+            <key>
+                <column name="classId" />
+            </key>
+            <one-to-many class="com.lrm.entity.Student" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-20 18:59:06 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.lrm.entity.TeacherTimeTable" table="tb_teatimetable">
+		<id name="teaTimeTableId" type="long">
+			<column name="ta_id" />
+			<generator class="native" />
+		</id>
+		<property name="teaCourseWeek" type="java.lang.String">
+			<column name="ta_teacourseweek" />
+		</property>
+
+		<many-to-one name="teaTableCourse" class="com.lrm.entity.Course"
+			unique="true">
+			<column name="teatimecourseId" />
+		</many-to-one>
+		
+		<many-to-one name="teaSchoolClass" class="com.lrm.entity.SchoolClass"
+			unique="true">
+			<column name="teatimeclassId" />
+		</many-to-one>
+		
+		<many-to-one name="teaTableRoom" class="com.lrm.entity.Room"
+			unique="true">
+			<column name="teatimeroomId" />
+		</many-to-one>
+		
+		<many-to-one name="teaTeacher" class="com.lrm.entity.Teacher"
+			unique="true">
+			<column name="teateacherId" />
+		</many-to-one>
+
+		<property name="teaLabTime" type="java.util.Date">
+			<column name="ta_teatime" />
+		</property>
+	</class>
+</hibernate-mapping>

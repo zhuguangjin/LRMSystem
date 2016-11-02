@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-19 13:48:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.StudentScore" table="tb_studentscore">
+        <id name="stuScoreId" type="long">
+            <column name="ts_id" />
+            <generator class="native" />
+        </id>
+        
+        <!-- stendent属性            本类与Students类的关系           一对一的关系       唯一外键关联-->
+        <many-to-one name="student" class="com.lrm.entity.Student" unique="true">
+            <column name="studentId" />
+        </many-to-one>
+         
+         <!-- course属性            本类与Course类的关系           一对一的关系       唯一外键关联-->
+        <many-to-one name="course" class="com.lrm.entity.Course" unique="true">
+            <column name="courseId" />
+        </many-to-one>
+        
+          <!-- teacher属性            本类与Teacher类的关系           一对多的关系       双向关联-->
+        <many-to-one name="teacher" class="com.lrm.entity.Teacher" >
+            <column name="teacherId" />
+        </many-to-one>
+        
+        <property name="stuScore" type="java.lang.String">
+            <column name="ts_score" />
+        </property>
+    </class>
+</hibernate-mapping>

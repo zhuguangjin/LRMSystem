@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.action.entension" value="action"></constant>
+
+	<!-- <constant name="struts.ui.theme" value="simple"/> -->
+	
+	<!-- 前台学生管理的Struts2配置文件 -->
+	<include file="struts-student-front.xml" />
+	
+	<!-- 前台老师管理的Struts2配置文件 -->
+	<include file="struts-teacher-front.xml" />
+	
+	
+	<!-- 基础包 -->
+	<package name="default" namespace="/" extends="struts-default">
+	</package>
+
+	<!-- 配置测试Struts与Spring整合 -->
+	<package name="test" namespace="/" extends="default">
+		<action name="test" class="TestAction">
+			<result name="success">/hello.jsp</result>
+		</action>
+	</package>
+
+	<!--系统管理员 管理用户 -->
+	<package name="adminAction" namespace="/admin" extends="default">
+		<action name="admin_*" class="AdminAction" method="{1}">
+			<!-- 管理员用户 -->
+			<result name="adminLoginUI">/admin/admin_login.jsp</result>
+			<result name="adminLogoutUI">/admin/logout.jsp</result>
+			<result name="toIndex" type="redirect">/admin/index.jsp</result>
+			<result name="toAdminInfoUI">/admin/admin_info.jsp</result>
+			<result name="adminListUI">/admin/admin_list.jsp</result>
+			<result name="toAdminListUI" type="redirect">admin_adminListUI</result>
+			<result name="adminEditUI">/admin/admin_edit.jsp</result>
+			<result name="adminAddUI">/admin/admin_add.jsp</result>
+		</action>
+	</package>
+
+	<!--系统管理员 学生用户 -->
+	<package name="studentAction" namespace="/admin" extends="default">
+		<action name="student_*" class="StudentsAction" method="{1}">
+			<result name="studentListUI">/admin/student_list.jsp</result>
+			<result name="toStudentListUI">/admin/student_list.jsp
+			</result>
+			<result name="toStudentList" type="redirect">student_studentListUI
+			</result>
+			<result name="studentAddUI">/admin/student_add.jsp</result>
+		</action>
+	</package>
+
+	<!--系统管理员 老师用户 -->
+	<package name="TeacherAction" namespace="/admin" extends="default">
+		<action name="teacher_*" class="TeacherAction" method="{1}">
+			<result name="teacherList">/admin/teacher_list.jsp</result>
+			<result name="teacherAddUI">/admin/teacher_add.jsp</result>
+			<result name="toTeacherList" type="redirect">teacher_teacherListUI
+			</result>
+		</action>
+	</package>
+
+	<!--系统管理员 信息管理 -->
+	<package name="annoAction" namespace="/admin" extends="default">
+		<action name="anno_*" class="AnnouncementAction" method="{1}">
+			<result name="annoListUI">/admin/anno_list.jsp</result>
+			<result name="annoSeeUI">/admin/anno_see.jsp</result>
+			<result name="annoAddUI">/admin/anno_add.jsp</result>
+			<result name="toAnnoListUI" type="redirect">anno_annoListUI</result>
+		</action>
+	</package>
+
+	<!--系统管理员 班级管理 -->
+	<package name="sclassAction" namespace="/admin" extends="default">
+		<action name="sclass_*" class="SchoolClassAction" method="{1}">
+			<result name="sclassListUI">/admin/sclass_list.jsp</result>
+			<result name="sclassAddUI">/admin/sclass_add.jsp</result>
+			<result name="toSclassListUI" type="redirect">sclass_sclassListUI
+			</result>
+		</action>
+	</package>
+
+	<!--系统管理员 成绩管理 -->
+	<package name="stuScoreAction" namespace="/admin" extends="default">
+		<action name="stuScore_*" class="StudentScoreAction" method="{1}">
+			<result name="stuScoreListUI">/admin/stuscore_list.jsp</result>
+			<result name="toStuScoreListUI" type="redirect">stuScore_stuScoreListUI
+			</result>
+			<result name="toStuScoreList">/admin/stuscore_list.jsp</result>
+		</action>
+	</package>
+
+	<!--系统管理员 教室资源 -->
+	<package name="roomAction" namespace="/admin" extends="default">
+		<action name="room_*" class="RoomAction" method="{1}">
+			<result name="roomListUI">/admin/room_list.jsp</result>
+			<result name="roomAddUI">/admin/room_add.jsp</result>
+			<result name="toRoomListUI" type="redirect">room_roomListUI</result>
+		</action>
+	</package>
+
+	<!--系统管理员 实验室资源 -->
+	<package name="laboratoryAction" namespace="/admin" extends="default">
+		<action name="laboratory_*" class="LaboratoryAction" method="{1}">
+			<result name="laboratoryListUI">/admin/laboratory_list.jsp</result>
+			<result name="laboratoryAddUI">/admin/laboratory_add.jsp</result>
+			<result name="toLaboratoryListUI" type="redirect">laboratory_laboratoryListUI</result>
+		</action>
+	</package>
+
+	<!--系统管理员 设备资源 -->
+	<package name="labDeviceAction" namespace="/admin" extends="default">
+		<action name="labDevice_*" class="LaboratoryDeviceAction" method="{1}">
+			<result name="labDeviceListUI">/admin/labdevice_list.jsp</result>
+			<result name="labDeviceAddUI">/admin/labdevice_add.jsp</result>
+			<result name="toLabDeviceListUI" type="redirect">labDevice_labDeviceListUI</result>
+		</action>
+	</package>
+
+		<!--系统管理员 预约管理 -->
+	<package name="labTimeTableAction" namespace="/admin" extends="default">
+		<action name="labttable_*" class="LabTimeTableAction" method="{1}">
+			<result name="labNotHandleListUI">/admin/labtimetableunhandl_list.jsp</result>
+			<result name="toLabNotHandleListUI" type="redirect">labttable_labNotHandleListUI</result>
+			
+			<result name="labHandleListUI">/admin/labtimetablehandl_list.jsp</result>
+			<result name="toLabHandleListUI" type="redirect">labttable_labHandleListUI</result>
+			
+			<result name="labFinishedListUI">/admin/labtimetablefinished_list.jsp</result>
+			<result name="toLabFinishedListUI" type="redirect">labttable_labFinishedListUI</result>
+		</action>
+	</package>
+</struts>

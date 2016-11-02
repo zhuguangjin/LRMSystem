@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-14 21:11:20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.lrm.entity.Announcement" table="tb_announcement">
+		<id name="annoId" type="long">
+			<column name="n_id" />
+			<generator class="native" />
+		</id>
+		<property name="annoTitle" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="n_title" />
+		</property>
+		<property name="annoContent" type="java.lang.String"
+			not-null="true" length="200">
+			<column name="n_content" />
+		</property>
+		<property name="annoPerson" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="n_persion" />
+		</property>
+		<property name="annoTime" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="n_time" />
+		</property>
+	</class>
+</hibernate-mapping>

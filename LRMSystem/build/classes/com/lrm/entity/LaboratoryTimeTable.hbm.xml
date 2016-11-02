@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-20 18:17:05 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.lrm.entity.LaboratoryTimeTable" table="tb_labtimetable">
+		<id name="labTimeTableId" type="long">
+			<column name="lt_labtId" />
+			<generator class="native" />
+		</id>
+		<property name="labTimeTableWeek" type="java.lang.String">
+			<column name="lt_labtweek" />
+		</property>
+
+		<!-- labTableCourse属性    本类与Course的关系     一对一   单向外键关联-->
+		<many-to-one name="labTableCourse" class="com.lrm.entity.Course" unique="true">
+			<column name="labtabcourseId" />
+		</many-to-one>
+
+		<!-- labSchoolClass属性   本类与SchoolClass的关系   单向一对一-->	
+		<many-to-one name="labSchoolClass" class="com.lrm.entity.SchoolClass" unique="true" >
+			<column name="labtimeclassId" />
+		</many-to-one>
+		
+		<!-- labSchoolClass属性   本类与Teacher的关系   单向一对一-->	
+		<many-to-one name="labTeacher" class="com.lrm.entity.Teacher" unique="true" >
+			<column name="labteacherId" />
+		</many-to-one>
+		
+		<many-to-one name="labLaboratory" class="com.lrm.entity.Laboratory" unique="true" >
+			<column name="lablaboratoryId" />
+		</many-to-one>
+
+		<!-- labTableRoom属性    本类与Room的关系   单向一对一   唯一外键关联  -->
+		<many-to-one name="labTableRoom" class="com.lrm.entity.Room" unique="true">
+			<column name="labtimeroomId" />
+		</many-to-one>
+
+		<property name="labTime" type="java.util.Date">
+			<column name="lt_time" />
+		</property>
+		<property name="labStatus" type="java.lang.String">
+			<column name="lt_status" />
+		</property>
+	</class>
+</hibernate-mapping>

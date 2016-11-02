@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-19 13:48:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.lrm.entity.Teacher" table="tb_teacher">
+		<id name="teacherId" type="long">
+			<column name="t_id" />
+			<generator class="native" />
+		</id>
+		<property name="teacherUsername" type="java.lang.String">
+			<column name="t_username" />
+		</property>
+		<property name="teacherPassword" type="java.lang.String">
+			<column name="t_password" />
+		</property>
+		<property name="teacherNumber" type="java.lang.String">
+			<column name="t_number" />
+		</property>
+		<property name="teacherPhoneNum" type="java.lang.String">
+			<column name="t_phone" />
+		</property>
+		<property name="teacherEmail" type="java.lang.String">
+			<column name="t_email" />
+		</property>
+
+		<!-- stuScore属性         本类与 StudentScore关系          一对多双向关联-->
+		<set name="stuScore" table="tb_studentscore" >
+			<key>
+				<column name="teacherId" />
+			</key>
+			<one-to-many class="com.lrm.entity.StudentScore" />
+		</set>
+
+	</class>
+</hibernate-mapping>

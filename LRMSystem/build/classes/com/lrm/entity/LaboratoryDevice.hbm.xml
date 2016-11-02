@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-20 17:21:27 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.LaboratoryDevice" table="tb_labatorydevice">
+        <id name="labDeviceId" type="long">
+            <column name="ld_id" />
+            <generator class="native" />
+        </id>
+        <property name="labDeviceName" type="java.lang.String">
+            <column name="ld_name" />
+        </property>
+        
+        <!-- laboratory属性       本类与Laboratory的关系      多对一 -->  
+        <many-to-one name="laboratory" class="com.lrm.entity.Laboratory">
+            <column name="laboratoryId" />
+        </many-to-one>
+        
+        <property name="labDeviceNumber" type="long">
+            <column name="ld_number" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

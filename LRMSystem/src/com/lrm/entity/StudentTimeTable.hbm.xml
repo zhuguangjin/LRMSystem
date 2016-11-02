@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-20 19:09:03 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.StudentTimeTable" table="tb_stutimetable">
+        <id name="stuTacleId" type="long">
+            <column name="sa_id" />
+            <generator class="native" />
+        </id>
+        <property name="stuCourseWeek" type="java.lang.String">
+            <column name="sa_stucourseweek" />
+        </property>
+        
+        <many-to-one name="stuTableCourse" class="com.lrm.entity.Course" unique="true">
+            <column name="stutablecourseId" />
+        </many-to-one>
+        
+        <many-to-one name="stuTableRoom" class="com.lrm.entity.Room" unique="true">
+            <column name="stutableroom" />
+        </many-to-one>
+        
+        <many-to-one name="stuTeacher" class="com.lrm.entity.Teacher" unique="true" >
+            <column name="stuteacherId" />
+        </many-to-one>
+        
+        <many-to-one name="stuSchoolClass" class="com.lrm.entity.SchoolClass" unique="true" >
+            <column name="stuschoolclassId" />
+        </many-to-one>
+        
+        <property name="stuLabTime" type="java.util.Date">
+            <column name="sa_time" />
+        </property>
+    </class>
+</hibernate-mapping>

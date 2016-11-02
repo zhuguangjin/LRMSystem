@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-20 17:21:27 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.Laboratory" table="tb_laboratory">
+        <id name="labId" type="long">
+            <column name="l_id" />
+            <generator class="native" />
+        </id>
+        <property name="labName" type="java.lang.String">
+            <column name="l_name" />
+        </property>
+        <property name="labBrief" type="java.lang.String">
+            <column name="l_brief" />
+        </property>
+        <property name="labLocation" type="java.lang.String">
+            <column name="l_location" />
+        </property>
+        <property name="labType" type="java.lang.String">
+            <column name="l_type" />
+        </property>
+        
+        <!-- labDevice属性           本来与 LaboratoryDevice的关系           双向多对一-->
+        <set name="labDevice" table="tb_labatorydevice" >
+            <key>
+                <column name="laboratoryId" />
+            </key>
+            <one-to-many class="com.lrm.entity.LaboratoryDevice" />
+        </set>
+           
+        <!-- teacher属性     本类与Teacher的关系      多对一单向关联 -->
+        <many-to-one name="teacher" class="com.lrm.entity.Teacher" unique="true">
+            <column name="teacherId" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

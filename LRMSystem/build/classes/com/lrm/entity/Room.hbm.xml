@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-20 18:15:23 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.Room" table="tb_room">
+        <id name="roomId" type="long">
+            <column name="r_id" />
+            <generator class="native" />
+        </id>
+        <property name="roomLocation" type="java.lang.String">
+            <column name="r_location" />
+        </property>
+    </class>
+</hibernate-mapping>

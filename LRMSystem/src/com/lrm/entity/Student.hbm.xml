@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-5-19 13:48:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.lrm.entity.Student" table="tb_student">
+        <id name="studentId" type="long">
+            <column name="s_id" />
+            <generator class="native" />
+        </id>
+        <property name="studentUsername" type="java.lang.String">
+            <column name="s_username" />
+        </property>
+        <property name="studentPassword" type="java.lang.String">
+            <column name="s_password" />
+        </property>
+        <property name="studentNumber" type="java.lang.String">
+            <column name="s_number" />
+        </property>
+        
+        <!--schoolClass属性      本类与SchoolClass的关系      多对一    双向关联  -->
+        <many-to-one name="schoolClass" class="com.lrm.entity.SchoolClass">
+            <column name="classId" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.lrm.entity">
+	<class name="com.lrm.entity.Admin" table="tb_admin">
+		<id name="adminId" type="long">
+			<column name="a_id" />
+			<generator class="native" />
+		</id>
+		<property name="adminUsername" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="a_username" />
+		</property>
+		<property name="adminPassword" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="a_password"/>
+		</property>
+		<property name="adminSex" type="java.lang.String" not-null="true"
+			length="10">
+			<column name="a_sex"/>
+		</property>
+		<property name="adminBirthday" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="a_birthday"/>
+		</property>
+		<property name="adminPhone" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="a_phone"/>
+		</property>
+		<property name="adminEmail" type="java.lang.String" not-null="true"
+			length="50">
+			<column name="a_email"/>
+		</property>
+	</class>
+</hibernate-mapping>

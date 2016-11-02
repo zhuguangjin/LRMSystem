@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+
+	body {
+	margin: 0;
+}
+
+#content {
+	width: atuo;
+	height: 39em;
+	position:relative;
+	text-align: center;
+	background-image: url(../Images/xgxt_login_bg.jpg);
+	background-size: 100% 100%;
+
+}
+#con {
+	
+
+}
+#Logout {
+	width: 456px;
+	position:absolute;
+	border: solid 5px #5ea3e1;
+	margin-top: 150px;
+	margin-left: 450px;
+	
+}
+#AwokeMsg {
+	height: 100;
+	background: #ffffff;
+	width: 100%;
+	text-align: left;
+`
+}
+#LogoutOperate {
+	background: #dcdcdc;
+	height: 85px;
+	text-align: left;
+	padding-top: 30px;
+	padding-left: 49px;
+	color: #004676;
+	font-family: "宋体";
+	font-size: 12px;
+}
+#LogoutOperate a {
+	color: #004676;
+	font-family: "宋体";
+	font-size: 12px;
+	margin-right: 20px;
+	TEXT-DECORATION: none;
+}
+#LogoutOperate img {
+	margin-bottom: -2px;
+}
+#LogoutImg {
+	margin-left: 33px;
+	margin-top: 21px;
+	margin-right: 10px;
+}
+#LogoutTitle {
+	margin-left: 12px;
+	margin-bottom: 16px;
+}
+table {
+	font-family: 宋体;
+	font-size: 10pt;
+	color: #484848;
+}

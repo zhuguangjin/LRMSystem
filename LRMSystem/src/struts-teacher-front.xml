@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.action.entension" value="action"></constant>
+	
+    <!-- 基础包 -->
+	<package name="tfrontdefault" namespace="/" extends="struts-default">	
+	</package>
+	
+	<!--老师管理端        老师用户 -->
+	<package name="teacherfrontAction" namespace="/teachers" extends="default">
+		<action name="teacher_*" class="TeacherAction" method="{1}">
+			<result name="teacherLogin">/teachers/index.jsp</result>
+			<result name="teacherInfoUI">/teachers/teacher_info.jsp</result>	
+			<result name="teacherEditUI">/teachers/teacher_edit.jsp</result>
+			<result name="toTeacherInfoUI" type="redirect">teacher_teacherInfoUI</result>	
+						
+			<result name="teacherReserveLabUI">/teachers/tealabreserve_list.jsp</result>
+			<result name="teaReserveLabList" type="redirect">teacher_teacherReserveLabUI</result>
+				
+		</action>
+	</package>
+		
+	<!--老师管理端        老师课表 -->
+	<package name="teaTablefrontAction" namespace="/teachers" extends="default">
+		<action name="teaTimeTable_*" class="TeacherTimeTableAction" method="{1}">
+			<result name="showTeacherTimeTable">/teachers/teacher_table.jsp</result>	
+			<result name="classListFromTable">/teachers/teaclass_list.jsp</result>
+			<result name="teaClassList">/teachers/teastudent_list.jsp</result>		
+		</action>
+	</package>
+	
+		<!--老师管理端        班级管理 -->
+	<package name="teaClassfrontAction" namespace="/teachers" extends="default">
+		<action name="teaClass_*" class="SchoolClassAction" method="{1}">
+			<result name="sclassListUI">/teachers/teaclass_list.jsp</result>			
+		</action>
+	</package>
+	
+</struts>
